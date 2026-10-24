@@ -1,0 +1,19 @@
+{
+  "name": "claimsaathi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An AI companion for Indian health insurance claims: reads the bill, predicts what the insurer will pay and why, lists missing documents, and drafts the grievance when a claim is cut unfairly.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env.local server/server.mjs",
+    "dev": "node --watch --env-file-if-exists=.env.local server/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "pages": "node scripts/build-pages.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "4.10.38"
+  }
+}

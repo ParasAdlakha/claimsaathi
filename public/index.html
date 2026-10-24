@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClaimSaathi · Your health claim companion</title>
+<meta name="description" content="Know what your health insurer will pay before you file, why, and what to do if they pay less.">
+<link rel="icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top"><div class="in">
+  <a class="logo" href="/"><i>स</i>ClaimSaathi<small>BETA</small></a>
+  <span class="spacer"></span>
+  <span class="chip" id="aiChip"><b></b><span>AI</span></span>
+  <div class="seg" role="group" aria-label="Language">
+    <button data-lang="en" aria-pressed="true">EN</button>
+    <button data-lang="hi" aria-pressed="false">हिंदी</button>
+  </div>
+  <select class="more" id="moreLang" aria-label="More languages">
+    <option value="">+ भाषा</option>
+    <option value="kn">ಕನ್ನಡ</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option>
+    <option value="mr">मराठी</option><option value="bn">বাংলা</option><option value="gu">ગુજરાતી</option><option value="ml">മലയാളം</option><option value="pa">ਪੰਜਾਬੀ</option>
+  </select>
+</div></div>
+
+<div class="layout">
+<main class="journey">
+
+  <section class="hero">
+    <h1 data-i="heroTitle">Hospital bill in hand? Know what your insurer will pay <em>before</em> you file.</h1>
+    <p data-i="heroSub">ClaimSaathi reads your bill, checks every line against your policy, tells you what will be cut and why, lists the papers you are missing, and drafts your complaint if the insurer pays less than it should.</p>
+    <div class="row">
+      <button class="btn primary" id="trySample" data-i="trySample">Try with a sample claim</button>
+      <a class="btn light" href="#billStep" data-i="useMine">Use my own bill</a>
+    </div>
+    <div class="facts">
+      <span><b>₹26,037 cr</b><span data-i="f1">health claims rejected or disallowed, FY24</span></span>
+      <span><b>43%</b><span data-i="f2">of policyholders faced claim hurdles</span></span>
+      <span><b>31,490</b><span data-i="f3">health complaints to the Ombudsman, FY24</span></span>
+    </div>
+  </section>
+
+  <section class="step" id="policyStep">
+    <header><span class="n">1</span><h2 data-i="s1">Your policy</h2><p data-i="s1p">The rules your claim is judged by</p></header>
+    <div class="row" style="justify-content:space-between">
+      <div><b id="polName">…</b> <span class="badge" id="polSample">SAMPLE</span><div class="tiny" id="polMeta"></div></div>
+      <label class="btn small"><span data-i="upPolicy">Upload my policy (PDF)</span><input type="file" id="policyFile" accept=".pdf,.txt" hidden></label>
+    </div>
+    <div class="terms" id="terms"></div>
+    <p class="tiny" id="polFound"></p>
+  </section>
+
+  <section class="step" id="billStep">
+    <header><span class="n">2</span><h2 data-i="s2">Your hospital bill</h2><p data-i="s2p">A photo of the itemised final bill</p></header>
+    <div class="pick" id="billPick">
+      <label class="drop">
+        <h3 data-i="photoTitle">📷 Photograph your bill</h3>
+        <span class="muted" data-i="photoSub">Every page of the itemised final bill. AI reads each line.</span>
+        <input type="file" id="billFile" accept="image/*" multiple hidden>
+      </label>
+      <button class="drop" id="useSampleBill" type="button" style="text-align:left">
+        <h3 data-i="sampleTitle">🧾 Use the sample bill</h3>
+        <img src="/docs/demo/bill.png" alt="Sample hospital final bill">
+        <span class="tiny" data-i="sampleSub">Laparoscopic appendectomy, 3 days, Bengaluru (fictional)</span>
+      </button>
+    </div>
+    <div class="scan" id="scanning" hidden><span class="spin"></span><span data-i="reading">Reading your bill…</span></div>
+    <div id="billOut" hidden>
+      <div class="meta" id="billMeta"></div>
+      <div class="tablebox"><table><thead><tr><th>#</th><th data-i="item">Item</th><th data-i="type">Type</th><th class="num" data-i="amount">Amount</th></tr></thead><tbody id="billRows"></tbody></table></div>
+      <div class="row"><button class="btn small" id="changeBill" data-i="changeBill">Use a different bill</button></div>
+    </div>
+  </section>
+
+  <section class="step locked" id="estStep">
+    <header><span class="n">3</span><h2 data-i="s3">What the insurer will likely pay</h2><p data-i="s3p">Line by line, with the clause behind every cut</p></header>
+    <div id="estOut" hidden>
+      <div class="flags" id="flags"></div>
+      <div class="big3">
+        <div><span data-i="billed">Hospital bill</span><b id="eBilled"></b></div>
+        <div class="pay"><span data-i="insurerPays">Insurer likely pays</span><b id="ePay"></b></div>
+        <div class="you"><span data-i="youPay">You pay</span><b id="eYou"></b></div>
+      </div>
+      <div class="bar" id="bar"></div>
+      <div class="legend" id="legend"></div>
+      <div class="water" id="water"></div>
+      <h3 style="font-size:17px" data-i="tipsTitle">What would have changed this</h3>
+      <div class="tips" id="tips"></div>
+      <details class="lines" open><summary data-i="lineDetail">Line-by-line reasons</summary>
+        <div class="tablebox" style="margin-top:10px"><table><thead><tr><th data-i="item">Item</th><th class="num" data-i="billedCol">Billed</th><th class="num" data-i="payCol">Payable</th><th class="num" data-i="cutCol">Cut</th></tr></thead><tbody id="estRows"></tbody></table></div>
+      </details>
+      <p class="disclaim" data-i="disclaim">This is an estimate to help you prepare, based on your policy wording and IRDAI rules. The insurer or TPA makes the final decision.</p>
+    </div>
+  </section>
+
+  <section class="step locked" id="docStep">
+    <header><span class="n">4</span><h2 data-i="s4">Papers and deadlines</h2><p class="progress" id="docProg"></p></header>
+    <div id="docOut" hidden>
+      <div class="dates" id="dates"></div>
+      <div class="docs" id="docs"></div>
+    </div>
+  </section>
+
+  <section class="step locked" id="pack">
+    <header><span class="n">5</span><h2 data-i="s5">Your claim pack</h2><p data-i="s5p">Claim form Part A, filled in</p></header>
+    <div id="packOut" hidden>
+      <div class="form" id="form"></div>
+      <div class="row"><button class="btn primary" id="printPack" data-i="print">Print claim form</button><span class="tiny" data-i="packNote">Check every field, sign, and attach the papers above.</span></div>
+    </div>
+  </section>
+
+  <section class="step locked" id="revStep">
+    <header><span class="n">6</span><h2 data-i="s6">Insurer paid less? Check the letter</h2><p data-i="s6p">Paste the settlement or rejection letter</p></header>
+    <div id="revIn" hidden>
+      <textarea id="letter" placeholder="Paste the insurer's settlement or rejection letter here…"></textarea>
+      <div class="row">
+        <button class="btn primary" id="checkLetter" data-i="checkLetter">Check this letter</button>
+        <button class="btn small" id="sampleLetter" data-i="sampleLetter">Use sample settlement letter</button>
+        <label class="btn small"><span data-i="letterPhoto">📷 Letter photo</span><input type="file" id="letterFile" accept="image/*" hidden></label>
+      </div>
+    </div>
+    <div id="revOut" hidden style="display:flex;flex-direction:column;gap:14px"></div>
+  </section>
+
+</main>
+
+<aside class="saathi" id="saathi" aria-label="ClaimSaathi assistant">
+  <header>
+    <div class="avatar" id="avatar">स</div>
+    <div><b>Saathi</b><span data-i="saathiSub">Ask anything about your claim</span></div>
+    <label class="voice"><input type="checkbox" id="voiceOn" checked> 🔊</label>
+  </header>
+  <div class="msgs" id="msgs"></div>
+  <div class="quick" id="quick"></div>
+  <form class="composer" id="composer">
+    <button class="mic" type="button" id="mic" title="Speak">🎙️</button>
+    <input id="q" autocomplete="off" placeholder="Ask in English or हिंदी…">
+    <button class="btn primary small" data-i="send">Send</button>
+  </form>
+</aside>
+</div>
+<button class="btn primary fab" id="fab">💬 Saathi</button>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@ A family is at the hospital billing desk with a ₹1,74,050 bill. ClaimSaathi ("
 
 Built by **Paras Adlakha** and **Harshita Adlakha** for the **Paytm Build for India AI Hackathon, Bengaluru**, Track 2: AI-Powered Financial Journeys.
 
-**▶ [Try it in your browser](https://parasadlakha.github.io/claimsaathi/app/)**: the full app running on GitHub Pages with the sample claim, in English and Hindi, no setup needed. · [Project page](https://parasadlakha.github.io/claimsaathi/) · [Two-minute demo video](docs/video/ClaimSaathi-demo.mp4)
+**▶ [Try it in your browser](https://parasadlakha.github.io/claimsaathi/app/)**: the full app running on GitHub Pages with the sample claim, in English and Hindi, no setup needed. · [Project page](https://parasadlakha.github.io/claimsaathi/) · **🎬 [Narrated 2-minute demo](docs/video/ClaimSaathi-demo-2min.mp4)** · [3-minute pitch video](docs/video/ClaimSaathi-pitch-3min.mp4)
 
 **📑 Hackathon pitch deck:** [PDF](docs/slides/ClaimSaathi-pitch-deck.pdf) · [PowerPoint](docs/slides/ClaimSaathi-pitch-deck.pptx) (the nine slides we submitted for Stage 1: title, problem, solution, product, tech stack, USP, impact, business model, team)
 

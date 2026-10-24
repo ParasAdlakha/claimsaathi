@@ -1,0 +1,17 @@
+SAMPLE GENERAL INSURANCE CO. (FICTIONAL) - CLAIM SETTLEMENT ADVICE
+Claim no: SGI/HC/25/771093      Policy no: SFH/2025/004417
+Patient: Ramesh Kumar           Hospital: Sanjeevani Multispeciality Hospital
+Date of admission: 14-10-2025   Date of discharge: 17-10-2025
+
+Amount claimed:                          Rs 1,74,050
+Less: Non-payable items                  Rs   6,900
+Less: Proportionate deduction - room rent
+      eligibility exceeded, applied on
+      total bill amount                  Rs  37,996
+Less: Ambulance over limit               Rs     500
+Less: Co-payment 10%                     Rs  12,865
+Amount approved:                         Rs 1,15,789
+
+Remarks: Patient occupied room category above eligibility (Rs 6,500 vs Rs 5,000 per day).
+Proportionate deduction applied on hospital bill as per policy terms.
+If you are not satisfied, you may write to our Grievance Redressal Officer.

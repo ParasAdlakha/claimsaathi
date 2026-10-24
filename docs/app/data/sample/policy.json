@@ -1,0 +1,61 @@
+{
+  "id": "suraksha-family-health",
+  "sample": true,
+  "name": "Suraksha Family Health (sample policy)",
+  "insurer": "Sample General Insurance Co. (fictional)",
+  "uin": "SAMPLE-HLT-0001",
+  "policyNumber": "SFH/2025/004417",
+  "holder": "Ramesh Kumar",
+  "insured": [
+    { "name": "Ramesh Kumar", "age": 62, "relation": "Self", "coveredSince": "2021-04-01" },
+    { "name": "Sunita Kumar", "age": 58, "relation": "Spouse", "coveredSince": "2021-04-01" }
+  ],
+  "start": "2025-04-01",
+  "end": "2026-03-31",
+  "terms": {
+    "sumInsured": 500000,
+    "roomRentPerDay": { "type": "percentOfSI", "value": 1, "clause": "3.1" },
+    "icuPerDay": { "type": "percentOfSI", "value": 2, "clause": "3.2" },
+    "copay": [
+      { "condition": "ageAbove", "value": 60, "percent": 10, "clause": "5.2" },
+      { "condition": "nonNetwork", "percent": 10, "clause": "5.3" }
+    ],
+    "deductible": 0,
+    "subLimits": [
+      { "procedure": "cataract", "match": ["cataract", "phaco"], "limit": 40000, "per": "eye", "clause": "4.2" },
+      { "procedure": "knee replacement", "match": ["knee replacement", "tkr", "arthroplasty"], "limit": 150000, "clause": "4.3" }
+    ],
+    "waiting": {
+      "initialDays": 30,
+      "preExistingMonths": 36,
+      "specificMonths": 24,
+      "specificList": ["cataract", "hernia", "hydrocele", "kidney stone", "gall bladder", "piles", "joint replacement", "sinusitis", "benign prostate"],
+      "clause": { "initial": "6.1", "preExisting": "6.2", "specific": "6.3" }
+    },
+    "preHospitalDays": 30,
+    "postHospitalDays": 60,
+    "intimation": { "emergencyHours": 24, "plannedHoursBefore": 48, "clause": "8.1" },
+    "submissionDays": 30
+  },
+  "clauses": [
+    { "id": "1.1", "title": "Hospitalisation expenses", "text": "The Company will pay the medical expenses for in-patient care when the Insured Person is hospitalised for at least 24 consecutive hours on the written advice of a medical practitioner, up to the Sum Insured stated in the Schedule." },
+    { "id": "1.2", "title": "Day care treatment", "text": "Day care procedures that need less than 24 hours of hospitalisation because of technological advancement are covered up to the Sum Insured." },
+    { "id": "2.1", "title": "Pre-hospitalisation", "text": "Medical expenses incurred in the 30 days immediately before admission, for the same condition, are covered if the in-patient claim is admissible." },
+    { "id": "2.2", "title": "Post-hospitalisation", "text": "Medical expenses incurred in the 60 days immediately after discharge, for the same condition, are covered if the in-patient claim is admissible." },
+    { "id": "3.1", "title": "Room rent limit", "text": "Room, boarding and nursing charges are payable up to 1% of the Sum Insured per day. If the Insured Person occupies a room with rent above this limit, all associated medical expenses (room, nursing, doctor and surgeon fees, operation theatre and procedure charges) will be paid in the same proportion as the eligible room rent bears to the actual room rent. Pharmacy and consumables, implants and medical devices, and diagnostics are not reduced in proportion." },
+    { "id": "3.2", "title": "ICU limit", "text": "Intensive care unit charges are payable up to 2% of the Sum Insured per day. Proportionate deduction does not apply to ICU charges." },
+    { "id": "4.1", "title": "Ambulance", "text": "Road ambulance charges up to Rs 2,000 per hospitalisation are payable." },
+    { "id": "4.2", "title": "Cataract sub-limit", "text": "Expenses for cataract surgery are payable up to Rs 40,000 per eye per policy year." },
+    { "id": "4.3", "title": "Knee replacement sub-limit", "text": "Expenses for knee replacement surgery are payable up to Rs 1,50,000 per knee." },
+    { "id": "5.2", "title": "Co-payment for senior citizens", "text": "Where the Insured Person is above 60 years of age at the time of admission, each admissible claim is subject to a co-payment of 10%, to be borne by the Insured Person." },
+    { "id": "5.3", "title": "Co-payment for non-network hospitals", "text": "Treatment taken in a hospital outside the Company's network is subject to an additional co-payment of 10% of the admissible claim." },
+    { "id": "6.1", "title": "Initial waiting period", "text": "Expenses for any illness contracted within 30 days of the first policy start date are excluded, except claims arising from an accident." },
+    { "id": "6.2", "title": "Pre-existing diseases", "text": "Expenses related to a pre-existing disease and its direct complications are excluded until 36 months of continuous coverage have elapsed since the first policy with the Company." },
+    { "id": "6.3", "title": "Specified disease waiting period", "text": "Expenses for cataract, hernia, hydrocele, kidney stones, gall bladder disease, piles, joint replacement, sinusitis and benign prostatic hypertrophy are excluded during the first 24 months of continuous coverage." },
+    { "id": "7.1", "title": "Non-payable items", "text": "Items listed in the IRDAI list of non-medical expenses are not payable, including personal comfort and convenience items (toiletries, diapers, admission kits), registration and documentation charges, and items subsumed into room or procedure charges (gloves, masks, cotton, gauze) unless the Schedule states otherwise." },
+    { "id": "8.1", "title": "Claim intimation", "text": "The Insured Person must intimate the claim within 24 hours of an emergency admission and at least 48 hours before a planned admission, by phone, app or email." },
+    { "id": "8.2", "title": "Documents for reimbursement", "text": "For a reimbursement claim, submit within 30 days of discharge: the duly filled claim form, original final bill with itemised break-up, payment receipts, discharge summary, investigation reports, pharmacy bills with prescriptions, KYC of the proposer, and a cancelled cheque or bank details for NEFT." },
+    { "id": "8.3", "title": "Cashless claims", "text": "For cashless treatment at a network hospital, the hospital sends the pre-authorisation request. The Company decides cashless authorisation within one hour and final authorisation at discharge within three hours of the hospital's request." },
+    { "id": "9.1", "title": "Grievance redressal", "text": "If you are not satisfied with a claim decision, write to the Company's Grievance Redressal Officer. If there is no reply within 30 days or you are not satisfied with the reply, you may approach Bima Bharosa or the Insurance Ombudsman within one year of the Company's reply." }
+  ]
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClaimSaathi · Know what your insurer will pay</title>
+<meta name="description" content="An AI companion for Indian health insurance claims: reads the bill, predicts the payout with a clause behind every cut, and drafts the grievance when the insurer pays less. Built for the Paytm Build for India AI Hackathon.">
+<meta property="og:image" content="img/linkedin-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230f6b5c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Noto+Sans+Devanagari:wght@700&display=swap">
+<style>
+/* Project page: one reading column, wide media. Light only, matching the product. */
+:root{--bg:#f5f6f2;--surface:#fff;--line:#dfe3da;--ink:#14231f;--ink-2:#4b5a55;--ink-3:#7d8a85;--brand:#0f6b5c;--mint:#7fe0c6;--cut:#c2362b;--pay:#16794a;
+  --display:"Bricolage Grotesque",Inter,system-ui,sans-serif;--sans:Inter,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--brand)}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 80px;display:flex;flex-direction:column;gap:64px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:700 1.25rem/1 var(--display);letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.logo i{width:32px;height:32px;border-radius:9px;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 18px/1 "Noto Sans Devanagari",sans-serif;font-style:normal}
+.links{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.025em;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.3rem,6vw,4.2rem);font-weight:800}
+h1 em{font-style:normal;color:var(--brand)}
+h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700}
+p{margin:0;max-width:68ch}
+.lede{font-size:1.15rem;color:var(--ink-2)}
+.tag{font:500 .75rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+section{display:flex;flex-direction:column;gap:20px}
+img,video{max-width:100%;display:block;border-radius:16px;border:1px solid var(--line);background:#fff}
+video{width:100%}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.stat b{display:block;font:800 2rem/1.1 var(--display);letter-spacing:-.02em}
+.stat span{color:var(--ink-2);font-size:.95rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.step small{font:500 .75rem/1 var(--mono);color:var(--brand);letter-spacing:.08em}
+.step b{font:700 1.15rem/1.2 var(--display)}
+.step span{font-size:.92rem;color:var(--ink-2)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pair figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{font-size:.9rem;color:var(--ink-3)}
+.dark{background:var(--ink);color:#eef3f1;border-radius:22px;padding:28px}
+.dark p{color:#c6d2cd}
+.dark b{color:var(--mint)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+td,th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font:500 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.scroll{overflow-x:auto}
+footer{color:var(--ink-3);font-size:.9rem;border-top:1px solid var(--line);padding-top:20px}
+@media (max-width:720px){.pair{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#"><i>स</i>ClaimSaathi</a>
+    <div class="links">
+      <a class="btn dark" href="app/">Try it live</a>
+      <a class="btn" href="slides/ClaimSaathi-pitch-deck.pdf">Pitch deck</a>
+      <a class="btn" href="https://github.com/ParasAdlakha/claimsaathi">Code</a>
+    </div>
+  </nav>
+
+  <section>
+    <span class="tag">Paytm Build for India AI Hackathon · Track 2 · AI-Powered Financial Journeys</span>
+    <h1>Know what your insurer will pay <em>before</em> you file.</h1>
+    <p class="lede">ClaimSaathi reads the hospital bill, checks every line against the policy and IRDAI's rules, explains each cut in Hindi or English with the clause behind it, lists the papers still missing, and drafts the grievance when the insurer pays less than it should.</p>
+  </section>
+
+  <section>
+    <video controls preload="metadata" poster="img/home.png" src="video/ClaimSaathi-demo.mp4"></video>
+    <p style="color:var(--ink-3);font-size:.9rem">Two-minute demo of the full journey, recorded from the working prototype. Or <a href="app/">try the app yourself</a>: it runs in your browser with the sample claim.</p>
+  </section>
+
+  <section>
+    <span class="tag">The problem</span>
+    <h2>Families learn the rules of their policy at the billing desk</h2>
+    <div class="stats">
+      <div class="stat"><b style="color:var(--cut)">₹26,037 cr</b><span>health claims rejected or disallowed in FY24, up 19%</span></div>
+      <div class="stat"><b>43%</b><span>of policyholders who claimed faced hurdles getting paid</span></div>
+      <div class="stat"><b>31,490</b><span>health complaints to the Insurance Ombudsman in FY24, up 21.7%</span></div>
+      <div class="stat"><b>12.9%</b><span>of claim value disallowed, often for missing information</span></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">The journey</span>
+    <h2>Six steps, one companion</h2>
+    <div class="steps">
+      <div class="step"><small>01</small><b>Policy</b><span>Sample, or upload the PDF. Key terms tied to clauses.</span></div>
+      <div class="step"><small>02</small><b>Bill</b><span>A photo; vision AI reads every line.</span></div>
+      <div class="step"><small>03</small><b>Estimate</b><span>Rules engine, a clause behind every rupee cut.</span></div>
+      <div class="step"><small>04</small><b>Papers</b><span>What is missing, and the deadlines.</span></div>
+      <div class="step"><small>05</small><b>Claim pack</b><span>Claim form Part A, filled in.</span></div>
+      <div class="step"><small>06</small><b>Check the letter</b><span>Find wrong deductions, draft the grievance.</span></div>
+    </div>
+    <img src="img/estimate.png" alt="ClaimSaathi estimate screen with Saathi answering a question" loading="lazy">
+  </section>
+
+  <section class="dark">
+    <span class="tag" style="color:var(--mint)">The demo claim</span>
+    <h2 style="color:#fff">₹10,498 the family would never have known to ask for</h2>
+    <p>Laparoscopic appendectomy, 3 days, a ₹6,500 room against a ₹5,000 limit, bill ₹1,74,050. ClaimSaathi predicts the insurer will pay <b>₹1,26,286</b>, and that a room within the limit would have meant <b>₹19,649</b> more. The insurer pays ₹1,15,789. ClaimSaathi reads the settlement letter: the room-rent proportion was applied to medicines and tests, which the 2024 IRDAI Master Circular does not allow. <b>₹10,498 recoverable</b>, grievance drafted, escalation path to Bima Bharosa and the Ombudsman.</p>
+  </section>
+
+  <section>
+    <div class="pair">
+      <figure><img src="img/review.png" alt="Settlement letter check" loading="lazy"><figcaption>Settlement check: three deductions correct, one contested</figcaption></figure>
+      <figure><img src="img/estimate-hi.png" alt="Estimate in Hindi" loading="lazy"><figcaption>The same estimate in Hindi, with Saathi answering a spoken question</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">How it works</span>
+    <h2>AI reads and talks. Rules do the money.</h2>
+    <div class="scroll"><table>
+      <tr><th>Part</th><th>What it does</th></tr>
+      <tr><td>Vision model (gpt-5-mini)</td><td>Bill and letter photos to structured lines with a strict JSON schema; unreadable photos are refused, not guessed</td></tr>
+      <tr><td>Rules engine</td><td>Eligibility and waiting periods, IRDAI non-payables, room-rent proportion on room-linked costs only, ICU and ambulance caps, sub-limits, co-pay, sum insured. Deterministic, 13 unit tests</td></tr>
+      <tr><td>Policy search</td><td>Wording split into clauses, BM25 retrieval with Hindi and Hinglish synonyms, answers grounded in retrieved clauses</td></tr>
+      <tr><td>Voice and language</td><td>Speech in and out in Hindi and English in the browser; eight more Indian languages via translation</td></tr>
+      <tr><td>Offline mode</td><td>Everything except photo reading and extra languages works with no API key</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <span class="tag">Business model</span>
+    <h2>Free for customers, paid by better outcomes</h2>
+    <div class="steps">
+      <div class="step"><b>Distribution</b><span>Show plans without room caps or co-pays when a customer hits one; broking commission on sale and renewal.</span></div>
+      <div class="step"><b>Gap finance</b><span>"You pay ₹47,764": a medical EMI from lending partners, before discharge.</span></div>
+      <div class="step"><b>B2B pre-check</b><span>Per-claim fee for insurers, TPAs and hospitals to clean files before submission.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">Team</span>
+    <p><b>Paras Adlakha</b> (aerospace, electronics, systems engineering) built the rules engine, bill reader and app. <b>Harshita Adlakha</b> (system dynamics, socio-technical systems) mapped the claim journey, the IRDAI rules and the grievance path.</p>
+  </section>
+
+  <footer>ClaimSaathi is a hackathon prototype. Estimates are not claim decisions; the insurer or TPA decides. The sample policy, insurer, hospital and patient are fictional. Figures from IRDAI, LocalCircles and the Council for Insurance Ombudsmen as reported in the press; sources in the README.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ClaimSaathi pitch deck</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+Devanagari:wght@500;700&display=swap">
+<style>
+/* Source for every slide and graphic. Each .frame is rendered to a PNG by render.mjs. */
+:root{--bg:#f5f6f2;--surface:#fff;--sunk:#eef0ea;--ink:#14231f;--ink-2:#4b5a55;--ink-3:#7d8a85;--line:#dfe3da;
+  --brand:#0f6b5c;--brand-soft:#e2f1ec;--mint:#7fe0c6;--saffron:#d97706;--saffron-soft:#fdf2e1;--cut:#c2362b;--cut-soft:#fbe9e7;--pay:#16794a;--pay-soft:#e5f4ea;
+  --display:"Bricolage Grotesque","Noto Sans Devanagari",Inter,sans-serif;--sans:Inter,"Noto Sans Devanagari",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:#888;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+.frame{background:var(--bg);position:relative;overflow:hidden;margin:0 0 40px;width:1920px}
+.slide{width:1920px;height:1080px;padding:80px 110px 64px;display:flex;flex-direction:column}
+.dark{background:var(--ink);color:#f3f6f4}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.025em;line-height:1.03}
+p{margin:0}
+.kicker{font:600 22px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.dark .kicker{color:var(--mint)}
+.head{display:flex;flex-direction:column;gap:18px;margin-bottom:48px}
+.head h2{font-size:68px;font-weight:700}
+.head h2 em{font-style:normal;color:var(--brand)}
+.logo{display:flex;align-items:center;gap:18px;font:700 46px/1 var(--display);letter-spacing:-.02em}
+.logo i{width:64px;height:64px;border-radius:18px;background:var(--brand);color:#fff;display:grid;place-items:center;font:700 38px/1 "Noto Sans Devanagari",sans-serif;font-style:normal}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:28px;padding:34px 38px}
+.shot{border-radius:20px;border:2px solid var(--line);box-shadow:0 30px 60px -30px rgba(20,35,31,.4);display:block;background:#fff;object-fit:cover;object-position:top left}
+.foot{margin-top:auto;display:flex;justify-content:space-between;font:500 20px/1 var(--mono);color:var(--ink-3);letter-spacing:.04em;padding-top:24px}
+.dark .foot{color:#7f948d}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.stat b{display:block;font:800 96px/1 var(--display);letter-spacing:-.035em;margin-bottom:14px}
+.stat p{font-size:30px;line-height:1.35;color:var(--ink-2)}
+.stat small{display:block;margin-top:14px;font:500 17px/1.3 var(--mono);color:var(--ink-3)}
+.pill{display:inline-flex;align-items:center;gap:10px;font:600 20px/1 var(--mono);padding:12px 18px;border-radius:999px;border:2px solid var(--line);background:var(--surface);white-space:nowrap}
+.tag{display:inline-block;font:700 17px/1 var(--mono);letter-spacing:.06em;padding:8px 12px;border-radius:9px;background:var(--brand-soft);color:var(--brand)}
+ul.clean{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+ul.clean li{font-size:26px;line-height:1.35;color:var(--ink-2);padding-left:34px;position:relative}
+ul.clean li::before{content:"";position:absolute;left:0;top:13px;width:14px;height:14px;border-radius:4px;background:var(--brand)}
+.big{font:800 96px/1 var(--display);letter-spacing:-.04em}
+</style>
+</head>
+<body>
+
+<!-- 1. Title -->
+<div class="frame dark" id="s1"><div class="slide">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div class="logo"><i>स</i>ClaimSaathi</div>
+    <span class="kicker">Paytm Build for India AI Hackathon · Track 2</span>
+  </div>
+  <div style="margin-top:110px;display:grid;grid-template-columns:1.25fr 1fr;gap:70px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:34px">
+      <h1 style="font-size:104px;font-weight:800">Know what your insurer will pay <span style="color:var(--mint)">before</span> you file.</h1>
+      <p style="font-size:34px;line-height:1.4;color:#c6d2cd">An AI companion for health insurance claims. It reads the hospital bill, checks every line against your policy, explains each cut in your language, and fights the ones that are wrong.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <span class="pill" style="background:#ffffff10;border-color:#ffffff30;color:#fff">AI-Powered Financial Journeys</span>
+        <span class="pill" style="background:#ffffff10;border-color:#ffffff30;color:#fff">Insurance</span>
+        <span class="pill" style="background:#ffffff10;border-color:#ffffff30;color:#fff">English · हिंदी · 8 more</span>
+      </div>
+    </div>
+    <img class="shot" src="../img/estimate.png" style="width:100%;height:600px;border-color:#2a3b36">
+  </div>
+  <div class="foot"><span>Paras Adlakha · Harshita Adlakha</span><span>Bengaluru · October 2026</span></div>
+</div></div>
+
+<!-- 2. Problem -->
+<div class="frame" id="s2"><div class="slide">
+  <div class="head"><span class="kicker">Problem statement</span><h2>Families learn the rules of their policy <em>at the billing desk.</em></h2></div>
+  <div class="grid3">
+    <div class="card stat"><b style="color:var(--cut)">₹26,037 cr</b><p>of health claims rejected or disallowed in FY24, up 19% in a year</p><small>IRDAI Annual Report 2023-24, via Lok Sabha reply</small></div>
+    <div class="card stat"><b>43%</b><p>of policyholders who claimed in 3 years faced hurdles getting paid</p><small>LocalCircles survey, 2024, ~39,000 responses</small></div>
+    <div class="card stat"><b>31,490</b><p>health insurance complaints to the Insurance Ombudsman in FY24, up 21.7%</p><small>Council for Insurance Ombudsmen, FY24</small></div>
+  </div>
+  <div class="card" style="margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:var(--sunk);border-color:transparent">
+    <div style="font:800 60px/1 var(--display);color:var(--saffron)">Why?</div>
+    <ul class="clean" style="gap:12px">
+      <li><b style="color:var(--ink)">Room-rent limits</b> silently cut doctor, OT and nursing fees by the same proportion</li>
+      <li><b style="color:var(--ink)">Non-payable items, co-pays, sub-limits, waiting periods</b> buried in 40-page wordings</li>
+      <li><b style="color:var(--ink)">Missing papers:</b> insurers disallowed 12.9% of claim value; few people know how to contest</li>
+    </ul>
+  </div>
+  <div class="foot"><span>ClaimSaathi · Problem</span><span>02</span></div>
+</div></div>
+
+<!-- 3. Solution -->
+<div class="frame" id="s3"><div class="slide">
+  <div class="head"><span class="kicker">Proposed solution</span><h2>One companion for the whole claim journey</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px">
+    <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:34px 30px;min-height:470px"><span class="tag">01 · READ</span><h3 style="font-size:40px">Snap the bill</h3><p style="font-size:26px;line-height:1.4;color:var(--ink-2)">Vision AI reads every line of the itemised bill. Upload the policy PDF, or use the one already on Paytm.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:34px 30px;min-height:470px;border-color:var(--brand)"><span class="tag">02 · PREDICT</span><h3 style="font-size:40px">Know the payout</h3><p style="font-size:26px;line-height:1.4;color:var(--ink-2)">A rules engine applies the policy and IRDAI rules line by line. Every rupee cut cites a clause.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:34px 30px;min-height:470px"><span class="tag">03 · EXPLAIN</span><h3 style="font-size:40px">In your language</h3><p style="font-size:26px;line-height:1.4;color:var(--ink-2)">Ask by voice in Hindi or English: "कमरे का किराया पूरा मिलेगा?" Saathi answers with your numbers.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:34px 30px;min-height:470px"><span class="tag">04 · PREPARE</span><h3 style="font-size:40px">File it right</h3><p style="font-size:26px;line-height:1.4;color:var(--ink-2)">Missing-paper checklist, deadlines, and the claim form Part A filled in.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:34px 30px;min-height:470px"><span class="tag">05 · RECOVER</span><h3 style="font-size:40px">Fight wrong cuts</h3><p style="font-size:26px;line-height:1.4;color:var(--ink-2)">Paste the settlement letter. Saathi finds errors and drafts the grievance up to the Ombudsman.</p></div>
+  </div>
+  <div class="card" style="margin-top:28px;display:flex;gap:40px;align-items:center;background:var(--ink);color:#f3f6f4;border-color:var(--ink)">
+    <div style="font:500 22px/1.3 var(--mono);color:var(--mint);white-space:nowrap">DEMO CLAIM</div>
+    <p style="font-size:28px;line-height:1.4">Appendectomy, 3 days, ₹1,74,050 bill. Saathi predicts <b style="color:var(--mint)">₹1,26,286</b> payable. The insurer pays ₹1,15,789. Saathi shows the proportionate cut was wrongly applied to medicines and tests: <b style="color:var(--mint)">₹10,498 recoverable</b>, grievance drafted.</p>
+  </div>
+  <div class="foot"><span>ClaimSaathi · Solution</span><span>03</span></div>
+</div></div>
+
+<!-- 4. Product -->
+<div class="frame" id="s4"><div class="slide">
+  <div class="head" style="margin-bottom:36px"><span class="kicker">Working prototype</span><h2>Built and running, online or offline</h2></div>
+  <div style="display:grid;grid-template-columns:1.5fr 1fr .55fr;gap:26px;flex:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:12px;min-height:0"><img class="shot" src="../img/estimate.png" style="width:100%;flex:1;min-height:0"><p style="font-size:21px;color:var(--ink-2)">Payout estimate with a clause on every cut, and Saathi answering with the customer's own numbers</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px;min-height:0"><img class="shot" src="../img/review.png" style="width:100%;flex:1;min-height:0;object-position:left top"><p style="font-size:21px;color:var(--ink-2)">Settlement letter check: the wrong deduction, the amount to recover, the grievance</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px;min-height:0"><img class="shot" src="../img/mobile-saathi.png" style="width:100%;flex:1;min-height:0"><p style="font-size:21px;color:var(--ink-2)">Mobile, in Hindi</p></div>
+  </div>
+  <div class="foot"><span>ClaimSaathi · Product</span><span>04</span></div>
+</div></div>
+
+<!-- 5. Tech stack -->
+<div class="frame" id="s5"><div class="slide">
+  <div class="head"><span class="kicker">Technology / tech stack</span><h2>AI reads and talks. <em>Rules do the money.</em></h2></div>
+  <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:34px;flex:1">
+    <div class="card" style="display:flex;flex-direction:column;gap:18px;padding:34px">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div style="background:var(--sunk);border-radius:18px;padding:20px"><b style="font:700 26px/1.2 var(--display)">Bill photo</b><p style="font-size:19px;color:var(--ink-2);margin-top:6px">Vision model, strict JSON schema</p></div>
+        <div style="background:var(--sunk);border-radius:18px;padding:20px"><b style="font:700 26px/1.2 var(--display)">Policy PDF</b><p style="font-size:19px;color:var(--ink-2);margin-top:6px">pdf.js → clauses → BM25 index</p></div>
+        <div style="background:var(--sunk);border-radius:18px;padding:20px"><b style="font:700 26px/1.2 var(--display)">Voice</b><p style="font-size:19px;color:var(--ink-2);margin-top:6px">Web Speech in/out, hi-IN, en-IN</p></div>
+      </div>
+      <div style="text-align:center;font:600 30px/1 var(--mono);color:var(--ink-3)">↓</div>
+      <div style="background:var(--brand);color:#fff;border-radius:20px;padding:26px 28px"><b style="font:700 32px/1.2 var(--display)">Deterministic rules engine</b><p style="font-size:21px;color:#d5ece5;margin-top:8px">Line categories · IRDAI non-payable list · room-rent proportion only on room-linked costs · ICU caps · sub-limits · co-pay · waiting periods · sum insured. Same input, same answer, clause on every rupee.</p></div>
+      <div style="text-align:center;font:600 30px/1 var(--mono);color:var(--ink-3)">↓</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div style="background:var(--pay-soft);border-radius:18px;padding:20px"><b style="font:700 24px/1.2 var(--display)">Estimate + tips</b></div>
+        <div style="background:var(--pay-soft);border-radius:18px;padding:20px"><b style="font:700 24px/1.2 var(--display)">Checklist + form</b></div>
+        <div style="background:var(--pay-soft);border-radius:18px;padding:20px"><b style="font:700 24px/1.2 var(--display)">Letter check + grievance</b></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card" style="padding:28px"><h3 style="font-size:30px;margin-bottom:14px">Stack</h3>
+        <ul class="clean" style="gap:10px"><li>Node.js server, no framework, stateless</li><li>OpenAI gpt-5-mini: vision, grounded Q&A, translation into 10 languages</li><li>BM25 retrieval over policy clauses, with Hindi and Hinglish synonyms</li><li>Vanilla JS, mobile-first, works offline in EN and HI</li><li>13 unit tests on the money logic</li></ul></div>
+      <div class="card" style="padding:28px;background:var(--saffron-soft);border-color:transparent"><h3 style="font-size:28px;margin-bottom:10px">Why not let the LLM do the maths?</h3><p style="font-size:22px;line-height:1.4;color:var(--ink-2)">Money must be exact and auditable. The model only reads and explains; it never decides a rupee.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>ClaimSaathi · Tech stack</span><span>05</span></div>
+</div></div>
+
+<!-- 6. USP -->
+<div class="frame" id="s6"><div class="slide">
+  <div class="head"><span class="kicker">USP</span><h2>Not a chatbot about insurance. <em>A second opinion on your claim.</em></h2></div>
+  <div class="grid2" style="gap:24px">
+    <div class="card" style="display:flex;gap:26px;align-items:flex-start"><div class="big" style="font-size:72px;color:var(--brand)">₹</div><div><h3 style="font-size:36px;margin-bottom:10px">Your numbers, not FAQs</h3><p style="font-size:24px;line-height:1.4;color:var(--ink-2)">Line-by-line payout from your bill and your policy, before you file. Others explain insurance in general.</p></div></div>
+    <div class="card" style="display:flex;gap:26px;align-items:flex-start"><div class="big" style="font-size:72px;color:var(--brand)">§</div><div><h3 style="font-size:36px;margin-bottom:10px">A clause behind every rupee</h3><p style="font-size:24px;line-height:1.4;color:var(--ink-2)">Deterministic engine, IRDAI rules encoded, cited in every answer. No hallucinated money.</p></div></div>
+    <div class="card" style="display:flex;gap:26px;align-items:flex-start"><div class="big" style="font-size:72px;color:var(--brand);font-family:'Noto Sans Devanagari'">अ</div><div><h3 style="font-size:36px;margin-bottom:10px">Voice-first, vernacular</h3><p style="font-size:24px;line-height:1.4;color:var(--ink-2)">Hindi and English offline; 8 more Indian languages with AI. Built for a 62-year-old patient's son at 11 pm.</p></div></div>
+    <div class="card" style="display:flex;gap:26px;align-items:flex-start"><div class="big" style="font-size:72px;color:var(--cut)">↺</div><div><h3 style="font-size:36px;margin-bottom:10px">Recovers money after the fact</h3><p style="font-size:24px;line-height:1.4;color:var(--ink-2)">Checks the insurer's settlement letter, quantifies the error, drafts the grievance and escalation.</p></div></div>
+  </div>
+  <div class="card" style="margin-top:24px;background:var(--ink);color:#f3f6f4;border-color:var(--ink);display:flex;gap:30px;align-items:center"><span class="kicker" style="white-space:nowrap">Built for Paytm</span><p style="font-size:26px;line-height:1.4">Policy, KYC and bank details already sit in the Paytm app: the claim form fills itself, and the payout lands in the same wallet the bill was paid from.</p></div>
+  <div class="foot"><span>ClaimSaathi · USP</span><span>06</span></div>
+</div></div>
+
+<!-- 7. Impact -->
+<div class="frame" id="s7"><div class="slide">
+  <div class="head"><span class="kicker">Impact &amp; benefits</span><h2>Simpler, faster, more human, for everyone in the claim</h2></div>
+  <div class="grid3">
+    <div class="card" style="display:flex;flex-direction:column;gap:16px"><span class="tag">CUSTOMERS</span><h3 style="font-size:38px">No surprises</h3><ul class="clean" style="gap:12px"><li>Out-of-pocket known before discharge</li><li>Room choice advice: ₹19,649 more paid in the demo case</li><li>Wrong cuts recovered: ₹10,498 in the demo case</li><li>Free, in their language</li></ul></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:16px"><span class="tag">INSURERS &amp; TPAs</span><h3 style="font-size:38px">Cleaner files</h3><ul class="clean" style="gap:12px"><li>Fewer claims disallowed for missing papers (12.9% of value in FY24)</li><li>Fewer complaints reaching the Ombudsman</li><li>Faster processing: 72% of claims go through TPAs</li></ul></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:16px"><span class="tag">PAYTM</span><h3 style="font-size:38px">Trust that compounds</h3><ul class="clean" style="gap:12px"><li>A reason to keep the policy on Paytm and renew</li><li>Natural entry to better cover and medical EMI</li><li>Supports IRDAI's push on claim transparency</li></ul></div>
+  </div>
+  <div class="card" style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;background:var(--sunk);border-color:transparent">
+    <div class="stat"><b style="font-size:64px">3.26 cr</b><p style="font-size:22px">health claims filed in FY24</p></div>
+    <div class="stat"><b style="font-size:64px">₹31,086</b><p style="font-size:22px">average paid per claim</p></div>
+    <div class="stat"><b style="font-size:64px">40 cr</b><p style="font-size:22px">"missing middle" Indians with no health cover (NITI Aayog): first-time buyers who need this most</p></div>
+  </div>
+  <div class="foot"><span>ClaimSaathi · Impact</span><span>07</span></div>
+</div></div>
+
+<!-- 8. Business model -->
+<div class="frame" id="s8"><div class="slide">
+  <div class="head"><span class="kicker">Business model</span><h2>Free for customers. <em>Paid by better outcomes.</em></h2></div>
+  <div class="grid3">
+    <div class="card" style="display:flex;flex-direction:column;gap:14px"><span class="tag">1 · DISTRIBUTION</span><h3 style="font-size:34px">Better cover, sold honestly</h3><p style="font-size:23px;line-height:1.4;color:var(--ink-2)">"Your plan caps room rent at ₹5,000." Saathi shows plans without the cap or co-pay. Paytm Insurance Broking earns the standard commission on each policy and renewal.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:14px;border-color:var(--brand)"><span class="tag">2 · GAP FINANCE</span><h3 style="font-size:34px">Medical EMI for the gap</h3><p style="font-size:23px;line-height:1.4;color:var(--ink-2)">The customer sees "you pay ₹47,764" before discharge. Offer a pre-approved medical EMI from Paytm's lending partners. Paytm earns its distribution fee.</p></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:14px"><span class="tag">3 · B2B API</span><h3 style="font-size:34px">Pre-check for insurers, TPAs, hospitals</h3><p style="font-size:23px;line-height:1.4;color:var(--ink-2)">Per-claim fee for a pre-submission check: line categories, missing papers, payout estimate. Fewer queries and re-submissions.</p></div>
+  </div>
+  <div class="card" style="margin-top:26px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px">
+    <div class="stat"><b style="font-size:58px;color:var(--brand)">&lt; ₹1</b><p style="font-size:21px">AI cost per claim: one vision read plus a few answers. The payout maths runs on rules, at zero model cost</p></div>
+    <div class="stat"><b style="font-size:58px;color:var(--brand)">₹650 cr</b><p style="font-size:21px">illustrative B2B pool: 3.26 crore claims a year × ₹20 per pre-check</p></div>
+    <div class="stat"><b style="font-size:58px;color:var(--brand)">0</b><p style="font-size:21px">new customer acquisition cost inside Paytm: offered where the policy and the hospital payment already are</p></div>
+  </div>
+  <p style="margin-top:16px;font:500 17px/1.3 var(--mono);color:var(--ink-3)">Illustrative figures for discussion; commission and fee rates follow IRDAI and partner agreements.</p>
+  <div class="foot"><span>ClaimSaathi · Business model</span><span>08</span></div>
+</div></div>
+
+<!-- 9. Team & roadmap -->
+<div class="frame dark" id="s9"><div class="slide">
+  <div class="head"><span class="kicker">Team &amp; next steps</span><h2 style="color:#fff">Systems thinkers building for the moment that matters</h2></div>
+  <div class="grid2" style="gap:30px">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="background:#ffffff0d;border:2px solid #ffffff1f;border-radius:26px;padding:30px"><h3 style="font-size:40px">Paras Adlakha</h3><p style="font-size:24px;color:#c6d2cd;margin-top:10px;line-height:1.4">Aerospace, electronics, systems engineering. Built the rules engine, the bill reader and the app.</p></div>
+      <div style="background:#ffffff0d;border:2px solid #ffffff1f;border-radius:26px;padding:30px"><h3 style="font-size:40px">Harshita Adlakha</h3><p style="font-size:24px;color:#c6d2cd;margin-top:10px;line-height:1.4">System dynamics, socio-technical systems. Mapped the claim journey, the IRDAI rules and the grievance path.</p></div>
+      <p style="font-size:22px;color:#9fb1aa">Recent builds: LineCheck (AI aircraft inspector on FaceTime, Beta Fund × AWS) and Fitted (Stripe × Supabase, Berlin).</p>
+    </div>
+    <div style="background:#ffffff0d;border:2px solid #ffffff1f;border-radius:26px;padding:34px;display:flex;flex-direction:column;gap:18px">
+      <h3 style="font-size:34px;color:var(--mint)">Roadmap</h3>
+      <ul class="clean" style="gap:14px"><li style="color:#dfe8e4">Finals: live bill photo → estimate, in Hindi, on a phone</li><li style="color:#dfe8e4">Pre-admission mode: compare room options before you choose</li><li style="color:#dfe8e4">Cashless desk mode for the 1-hour authorisation window</li><li style="color:#dfe8e4">Policy wordings for the top 20 retail health plans</li><li style="color:#dfe8e4">Validate estimates against real settled claims with a TPA partner</li></ul>
+    </div>
+  </div>
+  <div class="foot"><span>ClaimSaathi · claim saathi = claim companion</span><span>Thank you · धन्यवाद</span></div>
+</div></div>
+
+</body>
+</html>
